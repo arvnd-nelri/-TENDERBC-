@@ -1,0 +1,507 @@
+/* login and reg page css */
+
+
+
+
+/* Home page tenders headigs */
+.custom-heading {
+  background: white;
+  display: flex;
+  color: black;
+}
+.custom-heading:before,
+.custom-heading:after {
+  content: '';
+  margin: auto 1em;
+  border-bottom: solid 1px;
+  flex: 1;
+}
+.custom-heading h4 {
+  position: relative;
+  padding: 0.25em 1em;
+  overflow: hidden;
+  background: linear-gradient(black, black) no-repeat top center, linear-gradient(black, black) no-repeat bottom center;
+  background-size: calc(100% - 1.7em) 1px;
+}
+.custom-heading h4:before,
+.custom-heading h4:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: solid 1px;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+}
+.custom-heading h4:after {
+  transform: skew(-45deg)
+}
+
+
+
+/* Home page scroll bar hiding */
+.home-cscrollbar{
+  overflow-x : scroll;
+}
+
+.home-cscrollbar::-webkit-scrollbar {
+  display : none;
+}
+
+
+/* profile page count icons */
+.gradient-custom {
+  border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;background: #f6d365;
+  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+
+
+.button {
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #222;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: #555;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.dispicon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,.dispicon,.count {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.dispicon {
+  top: 0
+}
+
+.dispicon,.count {
+  transition: top 0.5s;
+}
+
+.count {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.button:hover {
+  background: #222;
+}
+
+.button:hover .dispicon {
+  top: -100%;
+}
+
+.button:hover .count {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
+
+
+
+
+/* Styling for completed tenders */
+.card-comp h5 {
+    color: red;
+  }
+  
+  .go-corner-comp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #ffc9c9;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow-comp {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+  
+  .card-comp {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .card-comp:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #ffc9c9;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-comp:hover:before {
+    transform: scale(21);
+  }
+  
+  .card-comp:hover h5 {
+    transition: all 0.3s ease-out;
+    color: rgb(142, 0, 0);
+  }
+
+
+/* Styling for Active Tenders */
+.card-acti h5 {
+    color: #28a745;
+  }
+  
+  .go-corner-acti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #28a745;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow-acti {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+  
+  .card-acti {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .card-acti:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #28a745;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-acti:hover:before {
+    transform: scale(21);
+  }
+  
+  .card-acti:hover h5 {
+    transition: all 0.3s ease-out;
+    color: white;
+  }
+
+/* Styling for inactive tenders */
+.card-inactive h5 {
+    color: #666;
+  }
+  
+  .go-corner-inactive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #666;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow-inactive {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+  
+  .card-inactive {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .card-inactive:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #666;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-inactive:hover:before {
+    transform: scale(21);
+  }
+  
+  .card-inactive:hover h5 {
+    transition: all 0.3s ease-out;
+    color: white;
+  }
+  
+
+/* Styling for key submission tenders */
+.card-ksub h5 {
+    color: #ffc107;
+  }
+  
+  .go-corner-ksub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #ffc107;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow-ksub {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+  
+  .card-ksub {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .card-ksub:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #ffc107;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-ksub:hover:before {
+    transform: scale(21);
+  }
+  
+  .card-ksub:hover h5 {
+    transition: all 0.3s ease-out;
+    color: white;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+Template for each card
+.card1 h5 {
+    color: #666;
+  }
+  
+  .go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #666;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+  
+  .card1 {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .card1:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #666;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card1:hover:before {
+    transform: scale(21);
+  }
+  
+  .card1:hover h5 {
+    transition: all 0.3s ease-out;
+    color: white;
+  }
+   */

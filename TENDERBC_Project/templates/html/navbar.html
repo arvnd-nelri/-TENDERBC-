@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="{% url 'hm' %}">TENDERBC</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+          {% if request.user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/Create Tender/' %}active{% endif %}" href="{% url 'ct' %}">Create Tender</a>
+          </li>
+          {% endif %}
+        {% else %}
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if not request.user.is_authenticated %}
+        <li class="nav-item">
+          
+          <a class="nav-link {% if request.path == '/register/' %}active{% endif %}" href="{% url 'rg' %}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'ln' %}">Login</a>
+        </li>
+        {% else %}
+          {% if request.user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/PastTenders/' %}active{% endif %}" href="{% url 'pts' %}"><i class="fa fa-history" aria-hidden="true"></i>History</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/PastBids/' %}active{% endif %}" href="{% url 'pbs' %}"><i class="fa fa-history" aria-hidden="true"></i>History</a>
+          </li>
+          {% endif %}
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+              {{request.user.username}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="{% url 'pf' request.user.id %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'cp' %}">Change Password</a>
+              
+              <form method="post" action="{% url 'lo' %}">
+                {% csrf_token %}
+                  <button class="dropdown-item" type="submit">Logout</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

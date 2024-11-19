@@ -1,0 +1,151 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<!-- <section class="vh-100" style="background-color: #f4f5f7;"> -->
+    <div class="container py-3 h-100">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <!-- <div class="col my-auto">
+                <div class="mx-auto" style="background: conic-gradient(#fcdf03 0% 28%, #03cafc 28% 65%, #03fc17 65% 100%);border-radius: 50%;width: 300px;height: 300px;"></div>
+              </div> -->
+              <div class="col-md-4 gradient-custom text-white pt-3">
+                <div class="row my-4 justify-content-center">
+                  <div data-tooltip="Total" class="col-md-4 button mx-2 my-4">
+                    <div class="button-wrapper">
+                      <div class="dispicon">
+                        <i class="fa fa-bars"></i>
+                      </div>
+                        <p class="count">
+                          {{counts.total}}
+                        </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row my-4 justify-content-center">
+                  <div data-tooltip="Submitted" class="col-md-4 button mx-2 my-4">
+                    <div class="button-wrapper">
+                      <div class="dispicon">
+                        <i class="fa fa-pencil-square"></i>
+                      </div>
+                        <p class="count">
+                          {{counts.submitted}}
+                        </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row my-4 justify-content-center">
+                  <div data-tooltip="Accepted" class="col-md-4 button mx-2 my-4">
+                    <div class="button-wrapper">
+                      <div class="dispicon">
+                        <i class="fa fa-thumbs-up"></i>
+                      </div>
+                        <p class="count">
+                          {{counts.accepted}}
+                        </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row my-4 justify-content-center">
+                  <div data-tooltip="Rejected" class="col-md-4 button mx-2 my-4">
+                    <div class="button-wrapper">
+                      <div class="dispicon">
+                        <i class="fa fa-thumbs-down"></i>
+                      </div>
+                        <p class="count">
+                          {{counts.rejected}}
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                    <h6>Information</h6>
+                    <hr class="mt-0 mb-4">
+                    <div class="row pt-1">
+                      <div class="col-6 mb-3">
+                        <span class="badge badge-pill badge-light"><h6>Username</h6></span>
+                        <p class="text-muted">{{user_details.username}}</p>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <span class="badge badge-pill badge-light"><h6>Establishment Year</h6></span>
+                        <p class="text-muted">{{user_details.establishment_year}}</p>
+                      </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col-6 mb-3">
+                          <span class="badge badge-pill badge-light"><h6>Registration Number</h6></span>
+                          <p class="text-muted">{{user_details.regno}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <span class="badge badge-pill badge-light"><h6>Type</h6></span>
+                          <p class="text-muted">{{user_details.company_type}}</p>
+                        </div>
+                      </div>
+                  <h6>Contact Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <span class="badge badge-pill badge-light"><h6>Email</h6></span>
+                      <p class="text-muted">{{user_details.email}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <span class="badge badge-pill badge-light"><h6>Phone Number</h6></span>
+                      <p class="text-muted">{{user_details.mobile}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <span class="badge badge-pill badge-light"><h6>Address</h6></span>
+                        <p class="text-muted">{{user_details.address}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  <!-- </section> -->
+
+
+
+
+
+    <!-- <div class="container mt-4">
+        <div class="card col-md-7 mx-auto shadow-lg">
+            <div class="card-body">
+                <h4 class="text-center">Profile</h4>
+                <table class="table table-responsive">
+                    <tr>
+                        <td class="font-weight-bold">Username</td>
+                        <td>{{user_details.username}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Email</td>
+                        <td>{{user_details.email}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Registration Number</td>
+                        <td>{{user_details.regno}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Mobile</td>
+                        <td>{{user_details.mobile}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Company Type</td>
+                        <td>{{user_details.company_type}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Address</td>
+                        <td>{{user_details.address}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Establishment Year</td>
+                        <td>{{user_details.establishment_year}}</td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div>
+    </div> -->
+{% endblock %}

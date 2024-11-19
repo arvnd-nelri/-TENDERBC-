@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/cardsstyle.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'jquery/sample.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>{% block title %}{% endblock %}</title>
+	<!-- <link rel="icon" href="{% static 'images/logo.png' %}"> -->
+</head>
+<body>
+	{% include 'html/navbar.html' %}
+    {% block content %}
+    {% endblock %}
+	<style>
+		@keyframes fadeIn {
+			0% {opacity: 0;}
+			100% {opacity: 1;}
+		}
+		
+		.message {
+			animation: fadeIn 1s;
+		}
+		.sticky-bottom {
+		  position: sticky;
+		  bottom: 0;
+		  width: 100%;
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 9999;
+		}
+	  </style>
+	  <script>
+		setTimeout(function() {
+			var messages = document.querySelectorAll('.message');
+			messages.forEach(function(message) {
+				message.style.transition = 'opacity 1s ease-out';
+				message.style.opacity = '0';
+			});
+		}, 3000);
+	  </script>
+	  <div class="container mt-4 sticky-bottom">
+		<div class="row justify-content-center">
+			<div class="col-md-5" style="display: flex; justify-content: center;">
+				{% for message in messages %}
+					{% if message.tags == 'success' %}
+						<div class="card text-white bg-success mb-3 message">
+							<div class="card-body">
+								<p class="card-text">{{ message }}</p>
+							</div>
+						</div>
+					{% elif message.tags == 'error' %}
+						<div class="card text-white bg-danger mb-3 message">
+							<div class="card-body">
+								<p class="card-text">{{ message }}</p>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	  </div>
+</body>
+</html>
